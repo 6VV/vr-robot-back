@@ -1,0 +1,11 @@
+server->robot:
+    robot control:12000
+
+robot->server:
+    video:12001
+
+vr->server:
+    vr pose:12002
+
+vr->client:
+    video:12003
