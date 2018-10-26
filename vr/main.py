@@ -10,9 +10,10 @@ if __name__ == '__main__':
     socket = context.socket(zmq.PUB)
     socket.connect("tcp://127.0.0.1:12002")
 
-    i = 0
-    while i < 2:
-        vr_pose_obj = VRPose()
-        socket.send_json(vr_pose_obj.get_pose())
+    vr_pose_obj = VRPose()
+
+    while True:
+        hand0 = vr_pose_obj.getControllerStateWithPose(0)
+        hand1 = vr_pose_obj.getControllerStateWithPose(1)
+        socket.send_json({'hand0': hand0, 'hand1': hand1})
         time.sleep(0.1)
-        i += 1

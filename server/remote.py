@@ -4,7 +4,7 @@
 import zmq
 
 
-def get_sub_socket(port: int)->zmq.Socket:
+def get_sub_socket(port):
     context = zmq.Context()
     socket = context.socket(zmq.SUB)
     socket.bind("tcp://0.0.0.0:"+str(port))
@@ -12,7 +12,7 @@ def get_sub_socket(port: int)->zmq.Socket:
     return socket
 
 
-def get_pub_socket(port: int)->zmq.Socket:
+def get_pub_socket(port):
     context = zmq.Context()
     socket = context.socket(zmq.PUB)
     socket.bind("tcp://0.0.0.0:"+str(port))

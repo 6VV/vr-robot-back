@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*-coding: utf-8 -*-
 
+import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import asyncio
 import remote
 import threading

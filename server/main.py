@@ -11,7 +11,7 @@ import asyncio
 if __name__ == '__main__':
     Video().start()
     VR().start()
-    
+
     asyncio.get_event_loop().run_forever()
 
 #     while input() != 'q':
