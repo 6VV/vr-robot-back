@@ -1,0 +1,5 @@
+{"name": "dfh", "score": 0}
+{"name": "aaa", "score": 3}
+{"name": "aaa", "score": 0}
+{"name": "ddgd", "score": 3}
+{"name": "ddgd", "score": 10}

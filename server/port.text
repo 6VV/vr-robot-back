@@ -7,5 +7,6 @@ robot->server:
 vr->server:
     vr pose:12002
 
-vr->client:
+server->client:
     video:12003
+    rank:12004

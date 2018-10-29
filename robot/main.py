@@ -13,5 +13,5 @@ if __name__ == '__main__':
     video_obj = Video()
     video_obj.start()
 
-    while input() != 'q':
+    while True:
         time.sleep(1)
