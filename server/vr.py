@@ -21,4 +21,4 @@ class VR:
         while True:
             data = vr_socket.recv()
             robot_socket.send(data)
-            print(data)
+            # print(data)

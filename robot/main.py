@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import time
-from robot import Robot
+from robot_control.robot import Robot
 from video import Video
 
 
