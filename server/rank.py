@@ -5,10 +5,15 @@ import threading
 import asyncio
 import websockets
 import json
+import os
 
 
 class Rank:
     def start(self):
+        self.file_path = 'file/rank.txt'
+        if not os.path.exists(self.file_path):
+            with open(self.file_path,'w') as f:
+                pass
         self.start_server()
 
     def start_server(self):
@@ -25,14 +30,14 @@ class Rank:
         asyncio.get_event_loop().run_until_complete(start_server)
 
     def save_to_file(self, value):
-        with open('file/rank.txt', 'a') as f:
+        with open(self.file_path, 'a') as f:
             f.write(json.dumps(value)+'\n')
 
     def read_rank(self):
         data = []
-        with open('file/rank.txt', 'r') as f:
+        with open(self.file_path, 'r') as f:
             lines = f.readlines()
             for line in lines:
-                if line.strip()!='':
+                if line.strip() != '':
                     data.append(json.loads(line))
         return json.dumps(data)
