@@ -10,8 +10,8 @@ if __name__ == '__main__':
     robot_obj = Robot()
     robot_obj.start()
 
-    video_obj = Video()
-    video_obj.start()
+    # video_obj = Video()
+    # video_obj.start()
 
     while True:
         time.sleep(1)

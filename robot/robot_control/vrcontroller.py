@@ -32,7 +32,7 @@ class VRController:
             self.ur_robot = URRobot(host)
 
             if init_posej is not None:
-                self.ur_robot.movej(init_posej, acc=0.5, vel=1)
+                self.movej(init_posej)
 
             # rospy.Subscriber(
             #     name=arm_name + "/vr_pose4", data_class=Pose, callback=self.on_sub_pose, queue_size=3)
@@ -44,8 +44,11 @@ class VRController:
                 self.ur_robot.close()
             exit()
 
+    def movej(self, pose):
+        self.ur_robot.movej(pose, acc=0.5, vel=1)
+
     def on_recv_data(self, data):
-        euler_pose = data['euler_pose']
+        # euler_pose = data['euler_pose']
         quaternion_pose = data['quaternion_pose']
         touched = data['touched']
 
@@ -96,11 +99,11 @@ class VRController:
             rz = theta * (mat[1, 0] - mat[0, 1]) / (2 * math.sin(theta))
             return [rx, ry, rz]
 
-    def change_status(self,data):
-        if data< 0:
-            self.stop_control()
-        else:
+    def change_status(self, data):
+        if data != 0:
             self.begin_control()
+        else:
+            self.stop_control()
 
         # if data > 0:
         #     self.set_force_mode(True)

@@ -22,8 +22,8 @@ class VRPose:
             openvr.TrackingUniverseStanding, device.index)
         touched = {
             'circleX': state.rAxis[0].x, 'circleY': state.rAxis[0].y, 'gripper': state.rAxis[1].x}
-        euler_pose = triad_openvr.convert_to_euler(
-            pTrackedDevicePose.mDeviceToAbsoluteTracking)
+        # euler_pose = triad_openvr.convert_to_euler(
+        #     pTrackedDevicePose.mDeviceToAbsoluteTracking)
         quaternion_pose = triad_openvr.convert_to_quaternion(
             pTrackedDevicePose.mDeviceToAbsoluteTracking)
-        return {'touched': touched, 'euler_pose': euler_pose, 'quaternion_pose': quaternion_pose}
+        return {'touched': touched, 'quaternion_pose': quaternion_pose}
